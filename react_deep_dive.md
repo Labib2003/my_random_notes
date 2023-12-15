@@ -21,6 +21,18 @@ const function_name = useCallback(
 // the function_name variable will refer to the same function unless the any dependencies change
 ```
 
+### `useMemo`
+
+Similar to useCallback, except it caches the return value of the function provided whenever the dependencies change.
+
+It can be used to cache expensive calculations.
+
+Syntax:
+
+```javascript
+const cachedValue = useMemo(calculateValue, dependencies);
+```
+
 ### `useReducer`
 
 Managest state in a redux like pattern.
@@ -58,3 +70,15 @@ Syntax:
 const [state, dispatch] = useReducer(reducer, arg, initializer);
 // here the second argument is the argument for the initializer. If the initializer does not required any arguments, this can be set to null.
 ```
+
+### `useDebugValue`
+
+A way to add labels to custom hooks so that their state can be seen in the devtools without expanding the hook.
+
+### `useId`
+
+Generates unique id. Should be used when ids are used in a component to make sure the html ids remain unique even if that component is rendered multiple times.
+
+### `useLayoutEffect`
+
+Similar to useEffect, except it runs after react finishes the calculations for the new ui and the browser rendering the ui.
